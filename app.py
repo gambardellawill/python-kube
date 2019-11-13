@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from flask import Flask, Response, jsonify
-import json
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -11,8 +10,7 @@ def hello():
 
 @app.route('/health')
 def readiness():
-    check = { 'status' : 'ready', 'app' : 'test' }
-    return jsonify(check), 200
+    return { 'status' : 'ready', 'app' : 'test' } , 200
 
 if __name__ == "__main__":
     app.run()
